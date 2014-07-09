@@ -1,4 +1,5 @@
 <?php
+
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Configuration;
 use Doctrine\Common\Cache\ArrayCache;
@@ -6,7 +7,7 @@ use Doctrine\Common\Cache\ArrayCache;
 $loaderPath = __DIR__ . "/vendor/autoload.php";
 
 if (! is_readable($loaderPath)) {
-  throw new \Exception("Run 'php composer.php' to install first");
+  throw new \Exception("Run \"php composer.php\" to install first");
 }
 
 $loader = require $loaderPath;
@@ -23,7 +24,7 @@ $cache = new ArrayCache();
 $config->setMetadataCacheImpl($cache);
 $config->setQueryCacheImpl($cache);
 
-$config->setProxyDir(__DIR__ . "/tmp");
+$config->setProxyDir(__DIR__ . "/cache");
 $config->setProxyNamespace("Proxies");
 
 $db = [
